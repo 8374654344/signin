@@ -1,17 +1,17 @@
-# #stage 1
-# FROM node:19.5.0-alpine as node
-# WORKDIR /app
-# COPY . .
-# RUN npm install
-# RUN npm run build 
-# #stage 2
-# FROM nginx:alpine
-# COPY --from=node /app/dist/login /usr/share/nginx/html
-
-FROM johnpapa/angular-cli as angular-built
+#stage 1
+FROM node:19.5.0-alpine as node
 WORKDIR /app
 COPY . .
-RUN npm install 
+RUN npm install
+RUN npm run build 
+#stage 2
+FROM nginx:alpine
+COPY --from=node /app/dist/login /usr/share/nginx/html
+
+# FROM johnpapa/angular-cli as angular-built
+# WORKDIR /app
+# COPY . .
+# RUN npm install 
 # COPY . .
 # RUN ng build 
 # FROM nginx:alpine
