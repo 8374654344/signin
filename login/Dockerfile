@@ -1,9 +1,8 @@
 #stage 1
-FROM node as node
+FROM node:18-alpine as node
 WORKDIR /app
-COPY package.json package.json
-RUN npm install
 COPY . .
+RUN npm install
 RUN npm run build 
 #stage 2
 FROM nginx:alpine
