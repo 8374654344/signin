@@ -10,7 +10,7 @@
 
 FROM johnpapa/angular-cli as angular-built
 WORKDIR /app
-COPY package.json package.json
+COPY . .
 RUN npm install 
 # COPY . .
 # RUN ng build 
