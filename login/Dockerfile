@@ -11,9 +11,9 @@
 FROM johnpapa/angular-cli as angular-built
 WORKDIR /usr/src/app
 COPY package.json package.json
-RUN npm install --prod
+RUN npm install 
 COPY . .
-RUN npm run build --prod
+RUN ng build --prod
 
 FROM nginx:alpine
 LABEL author="ramesh gongura"
