@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install --prod
 COPY . .
-RUN ng build --prod
+RUN npm run build --prod
 
 FROM nginx:alpine
 LABEL author="ramesh gongura"
