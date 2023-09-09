@@ -11,7 +11,7 @@
 FROM johnpapa/angular-cli as angular-built
 WORKDIR /usr/src/app
 COPY package.json package.json
-RUN npm install --silent
+RUN npm install --prod
 COPY . .
 RUN ng build --prod
 
