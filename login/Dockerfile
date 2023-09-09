@@ -9,12 +9,11 @@
 # COPY --from=node /app/dist/login /usr/share/nginx/html
 
 FROM johnpapa/angular-cli as angular-built
-WORKDIR /usr/src/app
+WORKDIR /app
 COPY package.json package.json
 RUN npm install 
-COPY . .
+# COPY . .
 RUN ng build 
-
 FROM nginx:alpine
 LABEL author="ramesh gongura"
 COPY --from=angular-built /usr/src/app/dist /usr/share/nginx/html
